@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="css/lucena_wizard.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body class="body-color">
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">QuantDesk modal</button>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+
+          <!-- Modal content-->
+          <div class="modal-content" id="contentStyle">
+
+            <div class="modal-header header">
+              <i class="fa fa-times-thin fa-2x dismiss" aria-hidden="true"></i>
+              <h4 class="modal-title title">QuantDesk Event Study Wizard</h4>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid fluid-style">
+                <div class="row">
+                  <div class="col-xs-4 col-xs-offset-4 align-center sub-header"></div>
+                </div>
+                <div class="row nav-bottom">
+                  <div class="col-xs-2 col-xs-offset-1 nav">
+                    <div class="page-button active" data-page="1"></div>
+                  </div>
+                  <div class="col-xs-2 nav">
+                    <div class="page-button passive" data-page="2"></div>
+                  </div>
+                  <div class="col-xs-2 nav">
+                    <div class="page-button passive" data-page="3"></div>
+                  </div>
+                  <div class="col-xs-2 nav">
+                    <div class="page-button passive" data-page="4"></div>
+                  </div>
+                  <div class="col-xs-2 nav">
+                    <div class="page-button passive" data-page="5"></div>
+                  </div>
+                </div>
+
+                <div class="inside-container">
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          </div>
+      </div>
+    </div>
+
+    <script type="text/template" id="page-one">
+      <form>
+        <div class="form-group side-layout">
+          <div class="col col-xs-6 col-xs-offset-3 mtop-center">
+            <label for="event-name" class="font-special">Name your event study:</label>
+          </div>
+          <div class="col col-xs-8 col-xs-offset-2">
+            <input type="text" class="form-control event-name" placeholder="Event Study Name" required value="<%= eventName %>" />
+          </div>
+        </div>
+      </form> 
+
+      <form>
+        <div class="row date-div">
+          <p class="text-center font-special">Specify a date range:</p>
+        </div>
+        <div class="form-group row">
+          <div class="col col-xs-8 col-xs-offset-2 date-format-div">
+            <div class="date-format-select">
+              <select class="form-control date-format">
+                <% _.each(dateFormatOptions, function(option) { 
+                  if(option == dateFormat) { %>
+                    <option value=<%= option %> selected > <%= option %> </option>
+                  <% } else { %>
+                    <option value=<%= option %> > <%= option %> </option>
+                  <% } 
+                 }) %>
+              </select>
+            </div>
+            <div class="date-range-div">
+              <input class="start-date" name="date" type="date" value="<%= startDate %>"/>
+            </div>
+            <div class="to-div">
+              <p class="text-center">to</p>
+            </div>
+            <div class="date-range-div">
+              <input class="end-date" name="date" type="date" value="<%= endDate %>"/>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+      <div class="row nav-bottom">
+        <div class="col col-xs-4 col-xs-offset-4">
+          <button type="button" class="btn btn-primary btn-block begin">Begin</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-xs-8 col-xs-offset-2">
+          <p class="text-center page-footer">
+            The QuantDesk Event Study Wizard will walk you step by step and guide you through your event study construction. You can always edit your event study settings later. 
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="page-two">
+      <div class="row side-layout">
+          <p class="sub-header-style">Equity Universe</p>
+      </div>
+
+      <div class="page-two-div">
+        <div class="page-two-left">
+          <p class="b-bottom white-black-list">
+            <button type="button" class="w3-button w3-tiny"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button> Whitelist</p>
+          <p><i>S&amp;P 500</i></p>
+        </div>
+        <div class="page-two-right">
+          <p class="b-bottom white-black-list">
+          <button type="button" class="w3-button w3-tiny"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></button> 
+          Blacklist</p>
+        </div>
+      </div>
+      
+      <div class="row side-layout">
+          <p class="sub-header-style">Sector</p>
+      </div>
+
+      <div class="sectors">
+        <div class="checkboxes">
+        <% _.each(initialOptionsArray, function(option, index) { 
+          if(index<6) { 
+            if(_.contains(selectedOptionsArray, option)) { %>
+              <div class="list-left">
+                <input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> <br>
+              </div>
+            <% } else { %>
+              <div class="list-right">
+                <input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> <br>
+              </div>
+            <% } 
+          } else { 
+            if(_.contains(selectedOptionsArray, option)) { %>
+              <div class="list-left">
+                <input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> <br>
+              </div>
+            <% } else { %>
+              <div class="list-right">
+                <input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> <br>
+              </div>
+            <% } 
+          } 
+        }) %>
+        </div>
+      </div>
+
+      <div class="row previous-next">
+          <div class="col col-xs-3 col-xs-offset-3 pright">
+              <button type="button" class="btn btn-primary btn-block pull-right navigate previous-two">Previous</button>
+          </div>
+          <div class="col col-xs-3 pleft">
+              <button type="button" class="btn btn-primary btn-block navigate next-two">Next</button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col col-xs-10 col-xs-offset-1">
+          <p class="text-center page-footer">
+            The equity universe represents all potential securities for the event filter. 
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="page-three">
+        <div class="row side-layout mbottom">
+          <p class="sub-header-style">Event Settings</p>
+        </div>
+        <form>
+          <div class="form-group row side-layout">
+            <div class="col col-xs-3 col-xs-offset-3 page-three-elements">
+              <p class="font-special">Type:</p>
+            </div>
+            <div class="col col-xs-3">
+              <select class="form-control form-control-sm event-type">
+                <% _.each(typeOptions, function(option) { 
+                  if(option == type) { %>
+                    <option value=<%= option %> selected > <%= option %> </option>
+                  <% } else { %>
+                    <option value=<%= option %> > <%= option %> </option>
+                  <% } 
+                }) %>
+              </select>
+            </div>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row side-layout">
+            <div class="col col-xs-3 col-xs-offset-3 page-three-elements">
+              <p class="font-special">Relative To:</p>
+            </div>
+            <div class="col col-xs-3">
+              <input class="stock-select" list="stocks" name="browser" value="<%= stock %>">
+              <datalist id="stocks">
+              <% _.each(stockOptions, function(option) {  %>
+                <option value="<%= option %>">
+              <% }) %>
+              </datalist>
+            </div>
+          </div>
+        </form>
+        <form>
+          <div class="form-group row side-layout">
+            <div class="col col-xs-3 col-xs-offset-3 page-three-elements">
+              <p class="font-special">Holding Period:</p>
+            </div>
+            <div class="col col-xs-3">
+              <select class="form-control form-control-sm holding-period">
+                <% _.each(holdingPeriodOptions, function(option) { 
+                  if(option == holdingPeriod) { %>
+                    <option value=<%= option %> selected > <%= option.replace('-', ' ') %> </option>
+                  <% } else { %>
+                    <option value=<%= option %> > <%= option.replace('-', ' ') %> </option>
+                  <% } 
+                }) %>
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="row previous-next">
+          <div class="col col-xs-3 col-xs-offset-3 pright">
+              <button type="button" class="btn btn-primary btn-block pull-right navigate previous-three">Previous</button>
+          </div>
+          <div class="col col-xs-3 pleft">
+              <button type="button" class="btn btn-primary btn-block navigate next-three">Next</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-xs-10 col-xs-offset-1">
+            <p class="text-center page-footer">
+              Please provide direction, price relative benchmark, and your initial holding period.  
+            </p>
+          </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="page-four">
+
+      <div class="row side-layout">
+        <p class="sub-header-style">Event Indicator Type</p>
+      </div>
+
+      <div>
+
+        <div class="row page-four">
+          <div class="col-xs-4 col-xs-offset-1 plzero">
+            <select class="form-control form-control-sm all-style">
+              <option value="All">All</option>
+            </select>
+          </div>
+          <div class="col-xs-2 col-xs-offset-4 przero">
+              <input type="text" class="form-control searchbox" placeholder="Search">
+          </div>
+        </div>
+
+        <div class="page-four-events">
+          <div class="row height-seventeen">
+            <div class="height-seventeen-left">
+              <p class="page-four-event-list">FLR Annual Report Event</p>
+            </div>
+            <div class="height-seventeen-right">
+              <button type="button" class="w3-button w3-tiny add" data-number="1">Add<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="row height-seventeen">
+            <div class="height-seventeen-left">
+              <p class="page-four-event-list">FLR Book Value of Capital to EBITDA Rank</p>
+            </div>
+            <div class="height-seventeen-right">
+              <button type="button" class="w3-button w3-tiny add" data-number="2">Add<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="row height-seventeen">
+            <div class="height-seventeen-left">
+              <p class="page-four-event-list">FLR Book Value of Capital to EBITDA Ratio</p>
+            </div>
+            <div class="height-seventeen-right">
+              <button type="button" class="w3-button w3-tiny add" data-number="3">Add<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="row height-seventeen">
+            <div class="height-seventeen-left">
+              <p class="page-four-event-list">FLR Cash Flow Value</p>
+            </div>
+            <div class="height-seventeen-right">
+              <button type="button" class="w3-button w3-tiny add" data-number="4">Add<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+              <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row side-layout pfour-second-half">
+          <p class="sub-header-style">Event Definition Indicators</p>
+      </div>
+
+      <% _.each(event_names, function(event_name, index){ %>
+
+        <div class="row page-four">
+
+          <div class="col-xs-3 col-xs-offset-1 pleftright">
+            <select class="form-control form-control-sm event-style">
+              <option value="All">Equity Universe</option>
+            </select>
+            <span class="glyphicon glyphicon-info-sign page-four-info" aria-hidden="true"></span>
+          </div>
+
+          <div class="col-xs-3 plzero przero">
+              <p class="page-four-event-list-small"><%= event_name %></p>
+          </div>
+
+          <div class="col-xs-4 plzero przero">
+              <div class="page-four-one">
+                <select class="form-control form-control-sm days-style">
+                  <option value="All">Days: 1</option>
+                </select>
+              </div>
+              <div class="page-four-two">
+                  <input type="text" class="page-four-number" value="-18.81">
+              </div>
+              <div class="page-four-three">
+                  <img src="img/histogram.png" height="19px" width="90%" class="mbzero">
+              </div>
+              <div class="page-four-four">
+                  <input type="text" class="page-four-number" style="float:left;" value="28.83">
+                  <i class="fa fa-times-thin fa-2x remove" data-close-number="<%= index %>" aria-hidden="true"></i>
+              </div>
+          </div>
+
+        </div>
+
+      <% }) %>
+
+      <div class="row previous-next">
+          <div class="col col-xs-3 col-xs-offset-3 pright">
+              <button type="button" class="btn btn-primary btn-block pull-right navigate previous-four">Previous</button>
+          </div>
+          <div class="col col-xs-3 pleft">
+              <button type="button" class="btn btn-primary btn-block navigate next-four">Next</button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col col-xs-10 col-xs-offset-1">
+          <p class="text-center page-footer">
+            Please select the initial indicators and their min/max range for the scan.
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="page-five">
+      <div class="row side-layout mbottom">
+          <p class="sub-header-style">Advanced Settings</p>
+      </div>
+      <form>
+        <div class="form-group row side-layout">
+          <label for="indicatorNumber" class="col-xs-4 col-xs-offset-1 col-form-label">Number of indicators:</label>
+          <div class="col-xs-2">
+            <select class="form-control form-control-sm indicator-number">
+              <% _.each(indicatorNumberOptions, function(option) { 
+                if(option == indicatorNumber) { %>
+                  <option value=<%= option %> selected > <%= option %> </option>
+                <% } else { %>
+                  <option value=<%= option %> > <%= option %> </option>
+                <% } 
+               }) %>
+            </select>
+          </div>
+        </div>
+      </form>
+      <div class="row previous-next">
+          <div class="col col-xs-3 col-xs-offset-3 pright">
+              <button type="button" class="btn btn-primary btn-block pull-right navigate previous-five">Previous</button>
+          </div>
+          <div class="col col-xs-3 pleft">
+              <button type="button" class="btn btn-primary btn-block navigate finish">Finish</button>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col col-xs-10 col-xs-offset-1">
+          <p class="text-center page-footer">
+            Machine optimized event study will attempt to optimize your study by suggesting additional indicators.  
+          </p>
+        </div>
+      </div>
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="js/models/pageOne.js"></script>
+    <script src="js/models/pageTwo.js"></script>
+    <script src="js/models/pageThree.js"></script>
+    <script src="js/models/pageFour.js"></script>
+    <script src="js/models/pageFive.js"></script>
+
+    <script src="js/models/mainModel.js"></script>
+
+    <script src="js/views/pageOneView.js"></script>
+    <script src="js/views/pageTwoView.js"></script>
+    <script src="js/views/pageThreeView.js"></script>
+    <script src="js/views/pageFourView.js"></script>
+    <script src="js/views/pageFiveView.js"></script>
+
+    <script src="js/views/appView.js"></script>
+
+  </body>
+</html>

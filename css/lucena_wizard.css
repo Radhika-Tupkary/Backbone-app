@@ -1,0 +1,477 @@
+.body-color {
+    background-color: #262626;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+}
+
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events: all;
+    background-color: #262626;
+    color:white;
+}
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+
+.modal-body{
+    height: 420px;
+    overflow-y: auto;
+}
+
+#contentStyle {
+    background-color: #121a21;
+    color:white;
+    font-size: 10pt;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#contentStyle .active {
+    border-radius: 1px;
+    height: 8px;
+    width:96%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color:white;
+    border: 1px solid white;
+    cursor: pointer; cursor: hand;
+}
+
+#contentStyle .passive {
+    border-radius: 1px;
+    height: 8px;
+    width:96%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid white;
+    background-color:#262626;
+    cursor: pointer; cursor: hand;
+}
+
+#contentStyle .nav {
+    padding:0px 1px 0px 1px;
+}
+
+#contentStyle .title {
+    font-family: 'pncb', sans-serif;
+    font-size:22px;
+}
+
+#contentStyle .nav-bottom {
+    margin-bottom:14px;
+}
+
+#contentStyle .date-div {
+    padding-top:10px;
+} 
+
+#contentStyle .date-format-div {
+    padding-left:35px;
+    padding-right:10px;
+}  
+
+#contentStyle .date-range-div {
+    width:31%;
+    float:left;
+}     
+
+#contentStyle .to-div {
+    width:8%;
+    float:left;
+    padding:3px;
+}  
+
+#contentStyle .date-format-select {
+    width:30%;float:left;
+}  
+
+#contentStyle .previous-next {
+    margin-bottom: 15px;
+    margin-top: 15px;
+} 
+
+#contentStyle .font-special {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+} 
+
+#contentStyle .white-black-list {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+#contentStyle .page-three-elements {
+    padding-left: 25px;
+    padding-right: 0px;
+} 
+
+#contentStyle .stockSelect, #contentStyle .start-date, #contentStyle .end-date, #contentStyle .event-name, #contentStyle .page-four-number {
+    color:black;
+}
+
+#contentStyle .list-left {
+    float:left;
+    width:50%;
+    padding-left: 30px;
+}
+
+#contentStyle .page-two-div {
+    height:80px;
+    padding:0px 50px 0px 120px;
+}
+
+#contentStyle .page-two-left {
+    width:45%;
+    border-right:1px solid white;
+    height:100%;
+    float:left;
+}
+
+#contentStyle .page-two-right {
+    width:45%;
+    float:left;
+}
+
+#contentStyle .pleft {
+  padding-left: 2px;
+}
+
+#contentStyle .pright {
+    padding-right: 2px;
+}
+
+#contentStyle .mbottom {
+    margin-bottom: 25px;
+}
+
+#contentStyle .list-right {
+    float:left;
+    width:50%;
+    padding-left: 30px;
+}
+
+#contentStyle .b-bottom {
+    border-bottom:1px solid white;
+}
+
+#contentStyle .page-footer {
+    clear: both;
+    font-style:italic;
+    word-wrap: break-word;
+    font-weight: 600;
+}
+
+#contentStyle .side-layout {
+    clear:both;
+    padding:0px 15px 0px 15px;
+}
+
+#contentStyle .w3-button {
+    padding:4px;
+}
+
+#contentStyle .plzero {
+    padding-left:0px;
+}
+
+#contentStyle .przero {
+    padding-right:0px;
+}
+
+#contentStyle .checkboxes {
+    padding:0px 20px 0px 80px;
+}
+
+#contentStyle .page-four-event-list {
+    font-size: 11.5px;
+}
+
+#contentStyle .page-four-event-list-small {
+    font-size: 10px;
+}
+
+#contentStyle .pfour-second-half {
+    margin-bottom: 4px;
+}
+
+#contentStyle .fluid-style {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#contentStyle .event-type {
+    border-radius: 3px;
+    height: 25px;
+    width: 65%;
+    padding: 0px;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+   font-size: 14px;
+}
+
+#contentStyle .page-four-number {
+    height: 19px;
+    font-size: 11px;
+    width:90%;
+}
+
+.fa {
+    cursor:pointer;
+}
+
+#contentStyle .event-name{
+    border-radius: 3px;
+    height: 28px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 6px 6px 5px 5px;
+}
+
+#contentStyle .all-style {
+    height: 24px;
+    width: 100%;
+    padding:0px;
+}
+
+#contentStyle .event-style {
+    height: 19px;
+    width: 85%;
+    font-size:12px; 
+    float:left;
+    padding:0px;
+}
+
+#contentStyle .days-style {
+    height: 19px;
+    width: 90%;
+    font-size:10px; 
+    padding:0px;
+}
+
+#contentStyle .page-four-events {
+    padding-left:8.33%;
+    padding-right:8.33%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#contentStyle .height-seventeen {
+    height:17px;
+}
+
+#contentStyle .height-seventeen-left {
+    width:50%;
+    float:left;
+    height:17px;
+}
+
+#contentStyle .height-seventeen-right {
+    width:12%;
+    float:right;
+    height:17px;
+}
+
+#contentStyle .searchbox {
+    padding: 6px;
+    height: 24px;
+    width: 100%;
+}
+
+#contentStyle .page-four {
+    clear:both;
+    height:24px;
+    margin-bottom: 2px;
+}
+
+#contentStyle .add {
+    padding: 0px;
+}
+
+#contentStyle .mbzero {
+    margin-bottom: 0px;
+}
+
+#contentStyle .begin {
+    background-color: #00001a !important;
+    border-style:solid;
+    border-color: black !important; 
+    background: linear-gradient(#29333d, #00001a) !important;
+    height:28px;
+    padding:3px;
+    font-weight:700;
+    font-family: 'pncb', sans-serif;
+    font-size:15px;
+    width:60%;
+    margin:0 auto;
+}
+
+#contentStyle .navigate  {
+   background-color: #00001a !important;
+   border-style:solid;
+   border-color: black !important; 
+   background: linear-gradient(#29333d, #00001a) !important;
+   height:28px;
+   padding:3px;
+   font-weight:700;
+   font-family: 'pncb', sans-serif;
+   font-size:15px;
+   width:80%;
+   margin: 0 auto;
+}
+
+#contentStyle .row {
+    clear:both;
+}
+
+#contentStyle .header {
+    padding: 15px 15px 1px 15px;
+    margin-right:10px;
+    margin-left:10px;
+}
+
+#contentStyle .start-date, #contentStyle .end-date {
+  height: 28px;
+  margin-right:0;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+#contentStyle .stock-select, #contentStyle .holding-period {
+  height: 25px;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 12px;
+  color: black;
+  padding: 0px;
+}
+
+#contentStyle .page-four-one {
+    padding:0;width:33%;float:left;
+}
+
+#contentStyle .page-four-two {
+    padding:0;width:20%;float:left;
+}
+
+#contentStyle .page-four-three {
+    padding:0;width:17%;float:left;
+}
+
+#contentStyle .page-four-four {
+    padding:0;width:19%;float:left;
+}
+
+#contentStyle .page-four-info {
+    float:left;width:10%;padding-left:4px
+}
+
+#contentStyle .pleftright {
+    padding-left:0;padding-right:2px;
+}
+
+
+
+
+#contentStyle .indicator-number {
+    border-radius: 3px;
+    height: 20px;
+    width: 80%;
+    padding:0px;
+}
+
+#contentStyle .date-format {
+    border-radius: 4px;
+    height: 28px;
+    width:80%;
+    font-size: 12px;
+    padding:0px;
+}
+
+#contentStyle .wrench-styling {
+    display: inline;
+    height :16px;
+    width : 16px;
+    background-color : #0d0d0d;
+}
+
+#contentStyle .align-center {
+    text-align: center;
+}
+
+#contentStyle .mtop-center {
+    text-align: center;
+    margin-top: 12px;
+}
+
+#contentStyle .sub-header-style {
+    border-bottom: 1px solid white;
+    padding: 5px 5px 2px 20px;
+    border-top: 1px solid white;
+    font-size: 14px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif
+}
+
+#contentStyle .sub-header {
+    margin-bottom: 3px;
+}
+
+
+#contentStyle .dismiss {
+    float:right;
+    font-size:16px;
+}
+
+#contentStyle .dismiss:hover,
+#contentStyle .dismiss:focus {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    color:white;
+    cursor:pointer;
+}
+
+#contentStyle .fa-times-thin:before {
+    content: '\00d7';
+}
+
+#contentStyle .remove {
+    font-size:16px;
+    width:10%;
+    float:left;
+    padding-left:3px;
+}
+
+
+@font-face {
+    font-family: "pncb";
+    src: url("fonts/ProximaNova_WOFF/ProximaNovaCond-Black.woff") format('woff');
+}
+
+@font-face {
+    font-family: "pnb";
+    src: url("fonts/ProximaNova_WOFF/ProximaNova-Black.woff") format('woff');
+}
