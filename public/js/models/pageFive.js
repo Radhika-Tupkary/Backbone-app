@@ -1,8 +1,8 @@
-var pageFive;
+let pageFive;
 
 $(function(){
     //Define Page-Five Model
-    var PageFive = Backbone.Model.extend({
+    let PageFive = Backbone.Model.extend({
         defaults: function() {
             return {
                 indicatorNumber: "1",
@@ -12,4 +12,4 @@ $(function(){
     });
 
     pageFive = new PageFive();
-})
+});

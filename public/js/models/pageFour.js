@@ -1,8 +1,8 @@
-var pageFour;
+let pageFour;
 
 $(function(){
     //Define Page-Four Model
-    var PageFour = Backbone.Model.extend({
+    let PageFour = Backbone.Model.extend({
         defaults: function() {
             return {
                event_names: []
@@ -12,4 +12,4 @@ $(function(){
     });
 
     pageFour = new PageFour();
-})
+});

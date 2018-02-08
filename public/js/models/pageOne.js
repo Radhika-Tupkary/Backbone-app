@@ -1,8 +1,8 @@
-var pageOne;
+let pageOne;
 
 $(function(){
     //Define Page-One Model
-    var PageOne = Backbone.Model.extend({
+    let PageOne = Backbone.Model.extend({
         defaults: function() {
             return {
                 eventName: "",
@@ -16,4 +16,4 @@ $(function(){
 
     pageOne = new PageOne();
 
-})
+});

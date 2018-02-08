@@ -1,4 +1,4 @@
-var PageOneView = Backbone.View.extend({
+let PageOneView = Backbone.View.extend({
 	template: _.template($("#page-one").html()),
 	events: {
 		"change .date-format"  : "dateFormatSelect",
@@ -14,10 +14,10 @@ var PageOneView = Backbone.View.extend({
 
 	render: function() {
 		if($(".date-format").find(':selected').val() == "MTD") {
-			var today = new Date();
-			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
-			var yyyy = today.getFullYear();
+			let today = new Date();
+			let dd = today.getDate();
+			let mm = today.getMonth()+1; //January is 0!
+			let yyyy = today.getFullYear();
 			if(dd<10) {
 			    dd='0'+dd
 			} 

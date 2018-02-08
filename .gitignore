@@ -1,3 +1,5 @@
 .idea/
 responsive_grid.html
 _DS_Store
+node_modules/
+package-lock.json

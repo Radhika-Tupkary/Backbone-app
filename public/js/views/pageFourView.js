@@ -1,4 +1,4 @@
-var PageFourView = Backbone.View.extend({
+let PageFourView = Backbone.View.extend({
 	template: _.template($("#page-four").html()),
 	events: {
 		"click .previous-four" : "previousButtonClicked",
@@ -18,7 +18,7 @@ var PageFourView = Backbone.View.extend({
 
 	addButtonClicked: function(e) {
 		event_names = this.model.get("event_names");
-		var add_number = $(e.currentTarget).data("number");
+        let add_number = $(e.currentTarget).data("number");
 		switch(add_number){
 			case 1 :
 				event_names.push("FLR Annual Report Event");
@@ -41,7 +41,7 @@ var PageFourView = Backbone.View.extend({
 	},
 
 	removeButtonClicked :function(e) {
-		var item_number = $(e.currentTarget).data("close-number");
+        let item_number = $(e.currentTarget).data("close-number");
 		event_names = mainModel.get("pageFour").get("event_names");
 		event_names.splice(item_number, 1);
 		this.model.set({event_names:event_names});

@@ -1,5 +1,5 @@
 $(function(){
-	var AppView = Backbone.View.extend({
+    let AppView = Backbone.View.extend({
 
 		el: $("#myModal"),
 	
@@ -16,7 +16,7 @@ $(function(){
 		render: function() {
 
 
-			var currentPageNumber = mainModel.get("currentPage");
+            let currentPageNumber = mainModel.get("currentPage");
 
 			$('.page-button').each(function(i, button) {
 				if(i < currentPageNumber){
@@ -32,23 +32,23 @@ $(function(){
 
 			switch(currentPageNumber) {
 				case 1 : 
-					var currentView = new PageOneView({model: mainModel.get("pageOne")});
+					let currentView = new PageOneView({model: mainModel.get("pageOne")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				case 2 : 
-					var currentView = new PageTwoView({model: mainModel.get("pageTwo")});
+					let currentView = new PageTwoView({model: mainModel.get("pageTwo")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				case 3 : 
-					var currentView = new PageThreeView({model: mainModel.get("pageThree")});
+					let currentView = new PageThreeView({model: mainModel.get("pageThree")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				case 4 : 
-					var currentView = new PageFourView({model: mainModel.get("pageFour")});
+					let currentView = new PageFourView({model: mainModel.get("pageFour")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				case 5 : 
-					var currentView = new PageFiveView({model: mainModel.get("pageFive")});
+					let currentView = new PageFiveView({model: mainModel.get("pageFive")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				default :
@@ -57,7 +57,7 @@ $(function(){
 		},
 
 		pageButtonClicked: function(e){
-			var clickedPage = $(e.currentTarget).data("page");
+            let clickedPage = $(e.currentTarget).data("page");
 			mainModel.set("currentPage", clickedPage);
 		},
 
@@ -69,6 +69,6 @@ $(function(){
 
 	});
 
-	var App = new AppView();
+    let App = new AppView();
     App.render();
 });

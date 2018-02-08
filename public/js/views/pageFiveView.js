@@ -1,10 +1,9 @@
-var PageFiveView = Backbone.View.extend({
+let PageFiveView = Backbone.View.extend({
 	template: _.template($("#page-five").html()),
 	events: {
 		"change .indicator-number" : "selectIndicatorNumber",
 		"click .previous-five"	   : "previousButtonClicked",
 		"click .finish"		       : "finishButtonClicked",
-
 	},
 
 	initialize: function() {

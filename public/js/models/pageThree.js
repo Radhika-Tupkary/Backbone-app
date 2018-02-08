@@ -1,8 +1,8 @@
-var pageThree;
+let pageThree;
 
 $(function(){
     //Define Page-Three Model
-    var PageThree = Backbone.Model.extend({
+    let PageThree = Backbone.Model.extend({
         defaults: function() {
             return {
               type : "Long",
@@ -17,4 +17,4 @@ $(function(){
     });
 
     pageThree = new PageThree();
-})
+});

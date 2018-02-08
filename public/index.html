@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="css/lucena_wizard.css">
+    <link rel="stylesheet" type="text/css" href="css/lucena_wizard.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,600,700,900" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -66,10 +66,10 @@
       <form>
         <div class="form-group side-layout">
           <div class="col col-xs-6 col-xs-offset-3 mtop-center">
-            <label for="event-name" class="font-special">Name your event study:</label>
+            <label class="font-special">Name your event study:</label>
           </div>
           <div class="col col-xs-8 col-xs-offset-2">
-            <input type="text" class="form-control event-name" placeholder="Event Study Name" required value="<%= eventName %>" />
+            <input type="text" class="form-control event-name" placeholder="Event Study Name" value="<%= eventName %>" required/>
           </div>
         </div>
       </form> 
@@ -147,21 +147,21 @@
           if(index<6) { 
             if(_.contains(selectedOptionsArray, option)) { %>
               <div class="list-left">
-                <input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> <br>
+                <label><input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> </label><br>
               </div>
             <% } else { %>
               <div class="list-right">
-                <input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> <br>
+                <label><input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> </label><br>
               </div>
             <% } 
           } else { 
             if(_.contains(selectedOptionsArray, option)) { %>
               <div class="list-left">
-                <input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> <br>
+                <label><input type="checkbox" name=<%= option%> value=<%= option %> checked/> <%= option.replace('-', ' ') %> </label><br>
               </div>
             <% } else { %>
               <div class="list-right">
-                <input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> <br>
+                <label><input type="checkbox" name=<%= option%> value=<%= option %> /> <%= option.replace('-', ' ') %> </label><br>
               </div>
             <% } 
           } 

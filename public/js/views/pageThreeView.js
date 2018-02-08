@@ -1,4 +1,4 @@
-var PageThreeView = Backbone.View.extend({
+let PageThreeView = Backbone.View.extend({
 	template: _.template($("#page-three").html()),
 	events: {
 		"change .event-type"     : "eventTypeSelect",

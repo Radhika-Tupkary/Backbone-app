@@ -1,9 +1,9 @@
-var mainModel;
+let mainModel;
 
 $(function(){
 
     //Define Main Model
-    var MainModel = Backbone.Model.extend({
+    let MainModel = Backbone.Model.extend({
         defaults: function() {
             return {
                 pageOne     : pageOne,
@@ -22,21 +22,21 @@ $(function(){
         buildJSON: function(){
             debugger;
 
-        	var pageOneProperties = this.get("pageOne").toJSON();
+            let pageOneProperties = this.get("pageOne").toJSON();
             delete pageOneProperties.dateFormatOptions;
             delete pageOneProperties.dateFormat;
 
-            var pageTwoProperties = this.get("pageTwo").toJSON();
+            let pageTwoProperties = this.get("pageTwo").toJSON();
             delete pageTwoProperties.initialOptionsArray;
-            
-            var pageThreeProperties = this.get("pageThree").toJSON();
+
+            let pageThreeProperties = this.get("pageThree").toJSON();
             delete pageThreeProperties.typeOptions;
             delete pageThreeProperties.stockOptions;
             delete pageThreeProperties.holdingPeriodOptions;
 
-            var pageFourProperties = this.get("pageFour").toJSON();
+            let pageFourProperties = this.get("pageFour").toJSON();
 
-            var pageFiveProperties = this.get("pageFive").toJSON();
+            let pageFiveProperties = this.get("pageFive").toJSON();
             delete pageFiveProperties.indicatorNumberOptions;
 
             output = $.extend(pageOneProperties, pageThreeProperties, pageFiveProperties);
