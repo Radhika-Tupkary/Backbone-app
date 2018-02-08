@@ -32,23 +32,23 @@ $(function(){
 
 			switch(currentPageNumber) {
 				case 1 : 
-					let currentView = new PageOneView({model: mainModel.get("pageOne")});
+					var currentView = new PageOneView({model: mainModel.get("pageOne")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
-				case 2 : 
-					let currentView = new PageTwoView({model: mainModel.get("pageTwo")});
+				case 2 :
+					var currentView = new PageTwoView({model: mainModel.get("pageTwo")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
-				case 3 : 
-					let currentView = new PageThreeView({model: mainModel.get("pageThree")});
+				case 3 :
+					var currentView = new PageThreeView({model: mainModel.get("pageThree")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
-				case 4 : 
-					let currentView = new PageFourView({model: mainModel.get("pageFour")});
+				case 4 :
+					var currentView = new PageFourView({model: mainModel.get("pageFour")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
-				case 5 : 
-					let currentView = new PageFiveView({model: mainModel.get("pageFive")});
+				case 5 :
+					var currentView = new PageFiveView({model: mainModel.get("pageFive")});
 					this.$(".inside-container").html(currentView.render().el);
 					break;
 				default :
@@ -69,6 +69,6 @@ $(function(){
 
 	});
 
-    let App = new AppView();
+	let App = new AppView();
     App.render();
 });
