@@ -4,6 +4,6 @@ This is a Backbone.js project created using BootStrap-3.3.7, ES6, HTML5, and CSS
 
 The project runs on **node server** created using **express**. 
 
-After cloning, run **npm install** to view the project locally.
+After cloning, run **npm install** to view the project locally on localhost://3000.
 
 **Heroku link** : https://hidden-tundra-39943.herokuapp.com/
