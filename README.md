@@ -1,3 +1,6 @@
+
+This project is created using HTML, CSS, Bootstrap and Backbone.js
+
 ### Getting Started
 
 This is a Backbone.js project created using BootStrap-3.3.7, ES6, HTML5, and CSS3.
